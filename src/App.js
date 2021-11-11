@@ -9,7 +9,9 @@ function App() {
 
       <BarraMenu />
 
-      <ItemListContainer greeting="Página web de turimo argentino" />
+      <ItemListContainer greeting="Página web de turimo argentino">
+
+      </ItemListContainer>
 
     </div>
   );
