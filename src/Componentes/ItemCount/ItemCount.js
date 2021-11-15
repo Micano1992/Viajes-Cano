@@ -4,15 +4,15 @@ import Button from 'react-bootstrap/Button'
 import './ItemCount.css'
 
 
-export const Contador = ({ stock, initial }) => {
+export const ItemCount = ({ item }) => {
 
-    const [counter, setCounter] = useState(initial)
+    const [counter, setCounter] = useState(item.stockInicial)
 
 
 
     const handleClickIncrementar = () => {
 
-        if (counter > stock - 1) {
+        if (counter > item.stock - 1) {
 
             alert("No hay mas stock")
 
@@ -48,9 +48,9 @@ export const Contador = ({ stock, initial }) => {
             <Card style={{ width: '15rem' }} >
                 <Card.Img variant="top" href="https://placeholder.com" src="https://via.placeholder.com/120" />
                 <Card.Body>
-                    <Card.Title>Titulo del producto</Card.Title>
+                    <Card.Title> {item.name}</Card.Title>
                     <Card.Text>
-                        Descripcion del producto
+                        {item.descripcion}
                     </Card.Text>
 
                     <h3> {counter} </h3>
