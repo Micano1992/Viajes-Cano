@@ -1,4 +1,4 @@
-import { productos } from "../Item/Item"
+import { productos } from "../Data/data"
 
 export const buscarProductos = () => {
 

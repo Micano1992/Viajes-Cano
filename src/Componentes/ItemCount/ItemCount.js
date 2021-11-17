@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import './ItemCount.css'
 
 
 export const ItemCount = ({ item }) => {
@@ -44,25 +42,17 @@ export const ItemCount = ({ item }) => {
 
 
     return (
-        < div className='PosicionCard'>
-            <Card style={{ width: '15rem' }} >
-                <Card.Img variant="top" href="https://placeholder.com" src="https://via.placeholder.com/120" />
-                <Card.Body>
-                    <Card.Title> {item.name}</Card.Title>
-                    <Card.Text>
-                        {item.descripcion}
-                    </Card.Text>
+        < div >
 
-                    <h3> {counter} </h3>
-                    <div>
-                        <Button style={{ margin: '10px' }} onClick={handleClickDecrementar} variant="secondary" size="sm">-</Button>
-                        <Button style={{ margin: '10px' }} onClick={handleClickIncrementar} variant="secondary" size="sm">+</Button>
-                    </div>
 
-                    <Button onClick={clickComprar} variant="info">Comprar</Button>{' '}
-                </Card.Body>
-            </Card>
-
+            <h3> {counter} </h3>
+            <div>
+                <Button style={{ margin: '10px' }} onClick={handleClickDecrementar} variant="secondary" size="sm">-</Button>
+                <Button style={{ margin: '10px' }} onClick={handleClickIncrementar} variant="secondary" size="sm">+</Button>
+            </div>
+            <div>
+                <Button onClick={clickComprar} variant="info">Comprar</Button>{' '}
+            </div>
         </div >
     )
 }

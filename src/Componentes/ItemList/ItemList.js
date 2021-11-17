@@ -1,4 +1,4 @@
-import { ItemCount } from '../ItemCount/ItemCount'
+import { Item } from '../Item/Item'
 
 export const ItemList = ({ productos }) => {
 
@@ -7,7 +7,7 @@ export const ItemList = ({ productos }) => {
             {
                 productos.map((prod) => (
 
-                    <ItemCount key={prod.id} item={prod} ></ItemCount>
+                    <Item key={prod.id} item={prod} ></Item>
                 ))
             }
 
