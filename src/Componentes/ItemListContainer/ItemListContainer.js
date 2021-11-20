@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
-// import { Producto } from '../ItemCount/ItemCount'
 import { ItemList } from '../ItemList/ItemList'
 import { buscarProductos } from '../helpers/solicitarDatos'
 import Spinner from 'react-bootstrap/Spinner'
+import { useParams } from 'react-router'
 
 
 export const ItemListContainer = ({ greeting }) => {
@@ -11,13 +11,22 @@ export const ItemListContainer = ({ greeting }) => {
     const [loading, setLoading] = useState(false)
     const [productosCargados, setProductosCargados] = useState([])
 
+    const { catId } = useParams()
+
+    console.log(catId)
 
     useEffect(() => {
         setLoading(true)
 
         buscarProductos()
             .then((resp) => {
-                setProductosCargados(resp)
+
+                if (!catId) {
+                    setProductosCargados(resp)
+                }
+                else {
+                    setProductosCargados(resp.filter(prod => prod.categoria === catId))
+                }
             })
             .catch((error) => {
 
@@ -28,7 +37,7 @@ export const ItemListContainer = ({ greeting }) => {
 
                 console.log("Finalizo la busqueda de productos")
             })
-    }, [])
+    }, [catId])
 
 
     return (
@@ -39,11 +48,13 @@ export const ItemListContainer = ({ greeting }) => {
 
                 <div>
                     {
-                        loading ? <h2> <Spinner animation="border" /> </h2> : <>
-                            <h2> Productos cargados </h2>
+                        loading
+                            ? <h2> <Spinner animation="border" /> </h2>
+                            : <>
+                                <h2> Productos cargados </h2>
 
-                            <ItemList productos={productosCargados}></ItemList>
-                        </>
+                                <ItemList productos={productosCargados}></ItemList>
+                            </>
                     }
                 </div>
 

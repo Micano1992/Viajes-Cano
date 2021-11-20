@@ -2,6 +2,7 @@ import { Container } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav } from 'react-bootstrap'
 import { CardWidget } from '../CardWiget/CardWidget'
+import { Link } from 'react-router-dom'
 
 
 export const BarraMenu = () => {
@@ -10,17 +11,15 @@ export const BarraMenu = () => {
         <>
             <Navbar bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home">VIAJES-CANO</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>VIAJES-CANO </Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#Mendoza">Mendoza</Nav.Link>
-                        <Nav.Link href="#TierraDelFuego">Tierra del fuego</Nav.Link>
-                        <Nav.Link href="#Salta">Salta</Nav.Link>
-                        <Nav.Link href="#Jujuy">Jujuy</Nav.Link>
-                        <Nav.Link href="#Chubut">Chubut</Nav.Link>
+                        <Nav.Link as={Link} to="paquetes/Patagonia" style={{ color: 'inherit', textDecoration: 'inherit' }}>Patagonia </Nav.Link>
+                        <Nav.Link as={Link} to="paquetes/Norte" style={{ color: 'inherit', textDecoration: 'inherit' }}>Norte </Nav.Link>
+                        <Nav.Link as={Link} to="paquetes/CostaArgentina" style={{ color: 'inherit', textDecoration: 'inherit' }}>Costa argentina </Nav.Link>
                     </Nav>
                     <CardWidget />
-                </Container>
-            </Navbar>
+                </Container >
+            </Navbar >
 
         </>
     )

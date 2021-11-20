@@ -6,7 +6,7 @@ export const buscarProductos = () => {
 
         setTimeout(() => {
             resolve(productos)
-        }, 5000)
+        }, 2000)
     }
     )
 }
