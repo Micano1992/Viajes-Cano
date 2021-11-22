@@ -1,6 +1,11 @@
 .PosicionCard{
-    margin: 10px;
-    padding: 100px;
-    display: inline flow-root list-item;
- 
+    padding: 50px;
+    display: inline-block;
+ }
+
+ .imgCard{
+
+     width: 15rem;
+     height: 15rem;
+
  }

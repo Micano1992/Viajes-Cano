@@ -7,7 +7,7 @@ import { buscarProductos } from '../helpers/solicitarDatos'
 
 export const ItemDetalleContainer = () => {
 
-    const [paqDetalle, setPaqDetalle] = useState()
+    const [paqDetalle, setPaqDetalle] = useState([])
     const [loading, setLoading] = useState()
 
     const { itemId } = useParams()
@@ -34,7 +34,10 @@ export const ItemDetalleContainer = () => {
             {
                 loading
                     ? <h2> <Spinner animation="border" /> </h2>
-                    : <ItemDetalle paquete={paqDetalle} />
+                    : paqDetalle
+                        ? <ItemDetalle paquete={paqDetalle}></ItemDetalle>
+                        : <h3> No existe el paquete</h3>
+
             }
 
         </div>
