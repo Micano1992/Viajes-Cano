@@ -1,3 +1,10 @@
+# Sobre el sitio
+
+Desarrollo realizado con la librería de JS react 17.0.2 y React-bootstrap 2.0.0.
+
+El sitio se crea para poder comercializar paquetes de viajes dentro de la Argentina. Se categorizan los paquetes en Patagonia, Costa y Norte.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
