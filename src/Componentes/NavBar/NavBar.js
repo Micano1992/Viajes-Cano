@@ -17,7 +17,7 @@ export const BarraMenu = () => {
                         <Nav.Link as={Link} to="paquetes/Norte" style={{ color: 'inherit', textDecoration: 'inherit' }}>Norte </Nav.Link>
                         <Nav.Link as={Link} to="paquetes/CostaArgentina" style={{ color: 'inherit', textDecoration: 'inherit' }}>Costa argentina </Nav.Link>
                     </Nav>
-                    <CardWidget />
+                    <Link to="/cart"> <CardWidget /> </Link>
                 </Container >
             </Navbar >
 

@@ -1,43 +1,32 @@
-import React, { useState } from "react"
+import React from "react"
 import Button from 'react-bootstrap/Button'
 
 
-export const ItemCount = ({ item }) => {
-
-    const [counter, setCounter] = useState(item.stockInicial)
+export const ItemCount = ({ item, setCantidad, cantidad, onAdd }) => {
 
 
 
     const handleClickIncrementar = () => {
 
-        if (counter > item.stock - 1) {
+        if (cantidad > item.stock - 1) {
 
             alert("No hay mas stock")
 
         }
         else {
-            setCounter(counter + 1)
+            setCantidad(cantidad + 1)
         }
 
     }
 
     const handleClickDecrementar = () => {
 
-        if (counter === 0) {
+        if (cantidad === 0) {
 
         }
         else {
-            setCounter(counter - 1)
+            setCantidad(cantidad - 1)
         }
-    }
-
-    const clickComprar = () => {
-
-        if (counter > 0) {
-
-            alert("Se realiza la compra de " + counter + " productos")
-        }
-
     }
 
 
@@ -45,13 +34,13 @@ export const ItemCount = ({ item }) => {
         < div >
 
 
-            <h3> {counter} </h3>
+            <h3> {cantidad} </h3>
             <div>
                 <Button style={{ margin: '10px' }} onClick={handleClickDecrementar} variant="secondary" size="sm">-</Button>
                 <Button style={{ margin: '10px' }} onClick={handleClickIncrementar} variant="secondary" size="sm">+</Button>
             </div>
             <div>
-                <Button onClick={clickComprar} variant="info">Comprar</Button>{' '}
+                <Button onClick={onAdd} variant="info">Agregar al carrito</Button>{' '}
             </div>
         </div >
     )
