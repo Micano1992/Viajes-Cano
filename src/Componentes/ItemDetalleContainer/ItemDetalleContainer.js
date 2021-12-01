@@ -12,14 +12,16 @@ export const ItemDetalleContainer = () => {
 
     const { itemId } = useParams()
 
+    console.log(itemId)
+
     useEffect(() => {
 
         setLoading(true)
 
         buscarProductos()
             .then(resp => {
-                console.log(resp)
                 setPaqDetalle(resp.find(paq => paq.id === Number(itemId)))
+
             })
 
             .finally(() =>

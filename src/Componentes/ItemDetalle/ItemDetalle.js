@@ -1,17 +1,17 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import { useNavigate } from 'react-router'
 import Button from 'react-bootstrap/Button'
 import { ItemCount } from "../ItemCount/ItemCount"
-
-
-
+import { CartContext } from '../../Contextos/CartContext'
 
 export const ItemDetalle = ({ paquete }) => {
 
     const navigate = useNavigate()
+
     const [cantidad, setCantidad] = useState(paquete.stockInicial)
-    const [itemAgregado, setItemAgregado] = useState(false)
+    // const [itemAgregado, setItemAgregado] = useState(false)
+    const { agregarPaquete, existePaquete } = useContext(CartContext)
 
     const hadleVolver = () => {
         navigate(-1)
@@ -28,7 +28,11 @@ export const ItemDetalle = ({ paquete }) => {
 
     const onAdd = () => {
         if (cantidad > 0) {
-            setItemAgregado(true);
+            agregarPaquete(
+                { ...paquete, cantidad }
+            )
+
+            // setItemAgregado(true);
         }
         else {
             alert("No indicó cantidad de paquetes")
@@ -48,7 +52,7 @@ export const ItemDetalle = ({ paquete }) => {
                     <Card.Text>Precio: {paquete.price} </Card.Text>
                     <Card.Text>Categoria: {paquete.categoria} </Card.Text>
 
-                    {!itemAgregado
+                    {!existePaquete(paquete)
                         ? <ItemCount
                             item={paquete}
                             setCantidad={setCantidad}
