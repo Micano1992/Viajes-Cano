@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button'
 import { CartContext } from '../../Contextos/CartContext'
 import { Cart } from '../Cart/Cart'
 import './CartView.css'
+import { Link } from 'react-router-dom'
+
 
 export const CartView = () => {
 
@@ -24,11 +26,18 @@ export const CartView = () => {
 
             </article>
 
-            <h3> Total: {totalCarrito()} </h3>
+            {(totalCarrito() === 0) ?
+                <> <h2>No hay paquetes agregados</h2>
+                    <br />
+                    <Link to={'/'} className="btn btn-secondary"> Ir al buscador </Link>
+                </>
+                : <> <h3> Total: {totalCarrito()} </h3>
 
-            <hr />
+                    <hr />
 
-            <Button className='btn btn-warning' onClick={vaciarCarrito} > Vaciar carrito </Button>
+                    <Button className='btn btn-warning' onClick={vaciarCarrito} > Vaciar carrito </Button>
+                </>
+            }
         </div>
     )
 }

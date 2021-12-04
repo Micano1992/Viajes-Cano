@@ -8,10 +8,15 @@ export const CardWidget = () => {
 
     const { totalCantidadCarrito } = useContext(CartContext)
 
-    return (
-        <>
-            <GiCommercialAirplane className="CardWidgetAltura" />
-            <span> {totalCantidadCarrito()} </span>
-        </>
-    )
+    if (totalCantidadCarrito() > 0) {
+
+        return (
+            <>
+                <GiCommercialAirplane className="CardWidgetAltura" />
+                <span> {totalCantidadCarrito()} </span>
+            </>
+        )
+    }
+
+    return ""
 }
