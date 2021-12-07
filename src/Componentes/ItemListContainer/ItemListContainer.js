@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { ItemList } from '../ItemList/ItemList'
-import { buscarProductos } from '../helpers/solicitarDatos'
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router'
+import { collection, getDocs, query, where } from 'firebase/firestore/lite'
+import { db } from '../../firebase/config'
 
 
 export const ItemListContainer = ({ greeting }) => {
@@ -18,25 +19,45 @@ export const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         setLoading(true)
 
-        buscarProductos()
-            .then((resp) => {
+        const paquetesRef = collection(db, 'Paquetes')
 
-                if (!catId) {
-                    setProductosCargados(resp)
-                }
-                else {
-                    setProductosCargados(resp.filter(prod => prod.categoria === catId))
-                }
-            })
-            .catch((error) => {
+        const paquetesQuery = catId ? query(paquetesRef, where('categoria', '==', catId)) : paquetesRef
 
-                console.log(error)
+        getDocs(paquetesQuery)
+            .then((res) => {
+                const items = res.docs.map((doc) => (
+                    {
+                        id: doc.id,
+                        ...doc.data()
+                    }))
+                console.log(items)
+
+                setProductosCargados(items)
+
             })
             .finally(() => {
                 setLoading(false)
-
-                console.log("Finalizo la busqueda de productos")
             })
+
+        // buscarProductos()
+        //     .then((resp) => {
+
+        //         if (!catId) {
+        //             setProductosCargados(resp)
+        //         }
+        //         else {
+        //             setProductosCargados(resp.filter(prod => prod.categoria === catId))
+        //         }
+        //     })
+        //     .catch((error) => {
+
+        //         console.log(error)
+        //     })
+        //     .finally(() => {
+        //         setLoading(false)
+
+        //         console.log("Finalizo la busqueda de productos")
+        //     })
     }, [catId])
 
 

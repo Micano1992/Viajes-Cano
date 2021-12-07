@@ -2,12 +2,13 @@ import { React, useState, useEffect } from 'react'
 import { ItemDetalle } from '../ItemDetalle/ItemDetalle'
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router'
-import { buscarProductos } from '../helpers/solicitarDatos'
+import { doc, getDoc } from 'firebase/firestore/lite'
+import { db } from '../../firebase/config'
 
 
 export const ItemDetalleContainer = () => {
 
-    const [paqDetalle, setPaqDetalle] = useState([])
+    const [paqDetalle, setPaqDetalle] = useState()
     const [loading, setLoading] = useState()
 
     const { itemId } = useParams()
@@ -18,14 +19,28 @@ export const ItemDetalleContainer = () => {
 
         setLoading(true)
 
-        buscarProductos()
-            .then(resp => {
-                setPaqDetalle(resp.find(paq => paq.id === Number(itemId)))
-
+        const docRef = doc(db, 'Paquetes', itemId)
+        getDoc(docRef)
+            .then((paq) => {
+                setPaqDetalle({
+                    id: paq.id,
+                    ...paq.data()
+                })
             })
+            .finally(() => {
 
-            .finally(() =>
-                setLoading(false))
+                setLoading(false)
+            }
+            )
+
+        // buscarProductos()
+        //     .then(resp => {
+        //         setPaqDetalle(resp.find(paq => paq.id === Number(itemId)))
+
+        //     })
+
+        //     .finally(() =>
+        //         setLoading(false))
 
     }, [itemId])
 

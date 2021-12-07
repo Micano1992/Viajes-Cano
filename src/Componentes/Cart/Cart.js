@@ -12,7 +12,7 @@ export const Cart = ({ paquete }) => {
     return (
         <div >
             < Card border="primary" style={{ width: '18rem', margin: '4rem' }}  >
-                <Card.Header>{paquete.id} - {paquete.name}</Card.Header>
+                <Card.Header>{paquete.name}</Card.Header>
                 <Card.Body>
                     <Card.Title>Precio: {paquete.price}</Card.Title>
                     <Card.Title>Cantidad: {paquete.cantidad}</Card.Title>
