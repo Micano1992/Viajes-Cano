@@ -1,0 +1,13 @@
+.inputStyle
+{
+    width: 20rem;
+    margin-right: 10px;
+    margin-right: 10px;
+}
+
+.FormStyle{
+    
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}

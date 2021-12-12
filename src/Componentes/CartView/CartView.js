@@ -36,6 +36,11 @@ export const CartView = () => {
                     <hr />
 
                     <Button className='btn btn-warning' onClick={vaciarCarrito} > Vaciar carrito </Button>
+
+                    <br />
+                    <br />
+
+                    <Link to="/checkout" className='btn btn-warning' > Confirmar compra </Link>
                 </>
             }
         </div>
