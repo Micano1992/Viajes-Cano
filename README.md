@@ -1,8 +1,10 @@
 # Sobre el sitio
 
-Desarrollo realizado con la librería de JS react 17.0.2 y React-bootstrap 2.0.0.
+Desarrollo realizado con la librería de JS react 17.0.2 y React-bootstrap 2.0.0. Se utiliza Firebase para el almacenamiento de datos.
 
 El sitio se crea para poder comercializar paquetes de viajes dentro de la Argentina. Se categorizan los paquetes en Patagonia, Costa y Norte.
+
+La web permite a los usuarios adquirir distintos paquetes, la cantidad deseada y confirmar la compra, dejando constancia de la compra en la base de datos Firebase. 
 
 
 # Getting Started with Create React App
