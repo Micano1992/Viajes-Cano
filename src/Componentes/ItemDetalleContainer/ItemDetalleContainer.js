@@ -33,14 +33,6 @@ export const ItemDetalleContainer = () => {
             }
             )
 
-        // buscarProductos()
-        //     .then(resp => {
-        //         setPaqDetalle(resp.find(paq => paq.id === Number(itemId)))
-
-        //     })
-
-        //     .finally(() =>
-        //         setLoading(false))
 
     }, [itemId])
 

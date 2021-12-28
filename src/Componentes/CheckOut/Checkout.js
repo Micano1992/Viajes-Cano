@@ -45,7 +45,6 @@ export const Checkout = () => {
 
         console.log(orden)
 
-
     }
 
     const handleInputChange = (e) => {

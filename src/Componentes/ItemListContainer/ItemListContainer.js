@@ -38,26 +38,6 @@ export const ItemListContainer = ({ greeting }) => {
             .finally(() => {
                 setLoading(false)
             })
-
-        // buscarProductos()
-        //     .then((resp) => {
-
-        //         if (!catId) {
-        //             setProductosCargados(resp)
-        //         }
-        //         else {
-        //             setProductosCargados(resp.filter(prod => prod.categoria === catId))
-        //         }
-        //     })
-        //     .catch((error) => {
-
-        //         console.log(error)
-        //     })
-        //     .finally(() => {
-        //         setLoading(false)
-
-        //         console.log("Finalizo la busqueda de productos")
-        //     })
     }, [catId])
 
 

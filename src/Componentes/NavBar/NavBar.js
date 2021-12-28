@@ -24,5 +24,3 @@ export const BarraMenu = () => {
         </>
     )
 }
-
-//export default NavBar 
